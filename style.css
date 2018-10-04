@@ -1,13 +1,24 @@
-
-body{
+body {
   background: white;
 }
+
 .owl {
+  animation: myKeyframes 5s ease;
   position: relative;
   margin: 40px auto 0;
   width: 200px;
 }
-.head{
+@keyframes myKeyframes {
+  0% {right: 0px;top: 0px; }
+  20%{right: 140px;top: -80px;}
+  40%{right: 150px; top:-70px;}
+  60%{right:0px; top: 160px;}
+  80%{right: -150px; top: -70px} 
+  90%{right: -140px;top: -80px;}
+  100%{right: 0px;top: 0px; }
+}
+
+.head {
   position: absolute;
   z-index: -9;
   top: -10px;
@@ -17,32 +28,35 @@ body{
   background: rgb(100, 194, 222);
   border-radius: 48%;
 }
-.head::after{
-  content:'';
+
+.head::after {
+  content: '';
   position: absolute;
   height: 0px;
   width: 0px;
-  border-top:10px solid transparent;
-  border-bottom:10px solid rgb(100, 194, 222);
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid rgb(100, 194, 222);
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  top:-10px;
+  top: -10px;
   transform: rotate(-12deg);
   left: 18px;
 }
-.head::before{
-  content:'';
+
+.head::before {
+  content: '';
   position: absolute;
   height: 0px;
   width: 0px;
-  border-top:10px solid transparent;
-  border-bottom:10px solid rgb(100, 194, 222);
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid rgb(100, 194, 222);
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  top:-10px;
+  top: -10px;
   transform: rotate(12deg);
   right: 18px;
 }
+
 .pupil {
   position: absolute;
   top: 20px;
@@ -52,8 +66,9 @@ body{
   border-radius: 100%;
   background: #000;
 }
-.pupil::after{
-  content:'';
+
+.pupil::after {
+  content: '';
   position: absolute;
   height: 20px;
   width: 20px;
@@ -61,44 +76,49 @@ body{
   border-radius: 100%;
   right: 0;
 }
-.eye{
-  
+
+.eye {
+
   position: absolute;
-  height:90px;
+  height: 90px;
   width: 90px;
   background: white;
   top: 10px;
   left: 10px;
   border-radius: 100%;
 }
-.eye:nth-child(2){
+
+.eye:nth-child(2) {
   left: 100px;
-  
+
 }
-.eyes{
+
+.eyes {
   position: absolute;
-  height:110px;
+  height: 110px;
   width: 110px;
   border-radius: 100%;
   background: rgb(152, 224, 248);
 
 }
-.eyes::after{
+
+.eyes::after {
   content: '';
-  z-index:-1;
+  z-index: -1;
   left: 90px;
   position: absolute;
-  height:110px;
+  height: 110px;
   width: 110px;
   border-radius: 100%;
   background: rgb(152, 224, 248);
 }
-.beak{
+
+.beak {
   position: absolute;
   display: block;
   height: 0;
-  width:0;
-  
+  width: 0;
+
   border-top: 50px solid #ef8e1b;
   border-left: 50px solid transparent;
   border-right: 50px solid transparent;
@@ -107,7 +127,8 @@ body{
   top: 68px;
   z-index: -1;
 }
-.body{
+
+.body {
   position: relative;
   background: rgb(152, 224, 248);
   height: 100px;
@@ -117,73 +138,93 @@ body{
   left: 20px;
   z-index: -1;
 }
-.wing{
+
+.wing {
   position: absolute;
   height: 100px;
   width: 50px;
-  transform-origin:30px 10px;
   border-radius: 50px 0;
   background: rgb(100, 194, 222);
   left: -12px;
-  transform:rotate(-16deg);
-  transition: all 0.5s ease;
+  animation: wingact 1.5s ease-in-out infinite;
+  transform-origin: 30px 10px;
 }
-.right{
+
+@keyframes wingact {
+  0% {transform: rotate(-16deg);}
+  50%{transform: rotate(90deg)}
+  100% {transform: rotate(-16deg);}
+}
+@keyframes goDown{
+  0% {transform: translateY(10px);}
+  50%{transform: translateY(0px);}
+  100% {transform: translateY(10px);}
+}
+@keyframes right{
+  0% {transform: rotate(16deg);}
+  50%{transform: rotate(-90deg)}
+  100% {transform: rotate(16deg);}
+}
+.right {
   content: '';
-  transform-origin:20px 10px;
+  transform-origin: 20px 10px;
   position: absolute;
   height: 100px;
   width: 50px;
-  border-radius:0 50px ;
+  border-radius: 0 50px;
   background: rgb(100, 194, 222);
-  left: 123px ;
-  transform:rotate(16deg);
-  transition: all 0.5s ease;
-} 
-.feather{
+  left: 123px;
+  transform: rotate(16deg);
+  animation: right 1.5s ease-in-out infinite;
+}
+
+.feather {
   position: absolute;
   display: block;
   height: 0px;
   width: 0px;
   z-index: 9;
-  top:70px;
-  right:73px;
+  top: 70px;
+  right: 73px;
   border-top: 8px solid #64c2de;
-  border-bottom:8px solid transparent;
-  border-right: 6px solid  transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 6px solid transparent;
   border-left: 6px solid transparent;
 }
-.feather::after{
-  content:'';
+
+.feather::after {
+  content: '';
   position: absolute;
   display: block;
   height: 0px;
   width: 0px;
   z-index: 9;
-  top:-20px;
-  left:5px;
+  top: -20px;
+  left: 5px;
   border-top: 8px solid #64c2de;
   transform: rotate(-5deg);
   border-bottom: 8px solid transparent;
-  border-right: 6px solid  transparent;
+  border-right: 6px solid transparent;
   border-left: 6px solid transparent;
 }
-.feather::before{
-  content:'';
+
+.feather::before {
+  content: '';
   position: absolute;
   display: block;
   height: 0px;
   width: 0px;
   z-index: 9;
-  top:-20px;
-  right:5px;
+  top: -20px;
+  right: 5px;
   border-top: 8px solid #64c2de;
   transform: rotate(5deg);
   border-bottom: 8px solid transparent;
-  border-right: 6px solid  transparent;
+  border-right: 6px solid transparent;
   border-left: 6px solid transparent;
 }
-.feet{
+
+.feet {
   position: absolute;
   width: 6px;
   height: 18px;
@@ -193,47 +234,39 @@ body{
   background: #ef8e1b;
   transform: rotate(6deg);
 }
-.feet::after{
+
+.feet::after {
   content: '';
   position: absolute;
   width: 6px;
   height: 18px;
-  left:6px;
+  left: 6px;
   border-radius: 50%;
   z-index: 2;
   background: #ef8e1b;
 }
-.feet::before{
+
+.feet::before {
   content: '';
   position: absolute;
   width: 6px;
   height: 18px;
-  right:6px;
+  right: 6px;
   border-radius: 50%;
   z-index: 2;
   background: #ef8e1b;
 }
 
 
-.rightFeet{
+.rightFeet {
   left: 104px;
   transform: rotate(-6deg)
 }
-.goDown{
-    transition: all 0.5s ease;
+
+.goDown {
+  transition: all 0.5s ease;
 }
 
-.owl:hover .goDown{
-  transform: translateY(10px);;
+.owl .goDown {
+  animation: goDown 1.5s ease-in-out infinite;
 }
-.owl:hover .wing{
-  transform: rotate(90deg);
-}
-.owl:hover .right{
-  transform: rotate(-90deg);
-}
-
-
-
-
-
